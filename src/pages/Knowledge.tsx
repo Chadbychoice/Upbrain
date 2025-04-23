@@ -123,7 +123,7 @@ When an urge hits:
             `}
           >
             <article.icon size={20} className="mr-2 hidden md:inline" />
-            {article.title.split(' ')[0]}
+            {article.title.split(' ').slice(0, 2).join(' ')}
           </button>
         ))}
       </div>
@@ -153,8 +153,8 @@ When an urge hits:
                 ul: ({node, ...props}) => <ul className="list-disc pl-5 my-4" {...props} />,
                 ol: ({node, ...props}) => <ol className="list-decimal pl-5 my-4" {...props} />,
                 li: ({node, ...props}) => <li className="font-comic my-2" {...props} />,
-                blockquote: ({node, ...props}) => (
-                  <div className="comic-panel bg-accent my-4 p-4" {...props} />
+                blockquote: ({node, children}) => (
+                  <div className="comic-panel bg-accent my-4 p-4">{children}</div>
                 ),
               }}
             >
