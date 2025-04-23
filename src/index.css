@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff0066;
+  --secondary: #0099ff;
+  --accent: #ffcc00;
+  --comic-black: #000000;
+  --comic-white: #ffffff;
+}
+
+body {
+  @apply font-main bg-comic-gray-100 text-comic-black antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.comic-border {
+  @apply border-4 border-comic-black shadow-[8px_8px_0px_#000];
+}
+
+.comic-btn {
+  @apply font-bangers py-3 px-6 text-xl rounded-lg uppercase tracking-wider 
+    transform transition-transform duration-200 text-comic-white bg-primary
+    border-4 border-comic-black shadow-[5px_5px_0px_#000] hover:shadow-[3px_3px_0px_#000]
+    hover:-translate-y-1 active:translate-y-1 active:shadow-[2px_2px_0px_#000];
+}
+
+.comic-panel {
+  @apply rounded-lg border-4 border-comic-black shadow-[6px_6px_0px_#000] overflow-hidden;
+}
+
+@layer utilities {
+  .text-outline {
+    text-shadow: 
+      -2px -2px 0 #000,  
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000;
+  }
+}
