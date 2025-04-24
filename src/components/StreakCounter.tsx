@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useStreakStore } from '../store/useStreakStore';
 import { Plus } from 'lucide-react';
 
 const StreakCounter: React.FC = () => {
   const { streak, incrementStreak } = useStreakStore();
+  const [showPow, setShowPow] = useState(false);
 
   const handleIncrement = () => {
     incrementStreak();
+    setShowPow(true);
+    setTimeout(() => setShowPow(false), 700); // Show for 700ms
   };
 
   return (
     <div className="relative">
+      {/* POW effect */}
+      {showPow && (
+        <img
+          src="/effects/pow.webp"
+          alt="POW!"
+          className="pointer-events-none select-none absolute left-1/2 top-8 z-20 w-32 h-32 -translate-x-1/2 animate-pow-pop"
+          style={{ filter: 'drop-shadow(0 0 8px #fff)' }}
+        />
+      )}
       <motion.div 
         className="comic-panel bg-secondary flex flex-col items-center justify-center py-8 px-12"
         whileHover={{ scale: 1.05 }}
